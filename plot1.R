@@ -1,4 +1,8 @@
 ##  1day = 24 * 60 = 1440 minutes.  Need for 2 days in feb, therefore 1440 * 2 = 2880
+
+fileUrl <- "https://d396qusza40orc.cloudfront.net/exdata%2Fdata%2Fhousehold_power_consumption.zip"
+download.file(fileUrl, destfile = "household_power_consumption.zip")
+unzip("household_power_consumption.zip")
 data <- read.table("household_power_consumption.txt", sep=";", header=TRUE, skip= 66636, nrow=2880)
 
 > names(data)
@@ -22,5 +26,13 @@ names(data)[9] <- "Sub_metering_3"
 
 qplot(Global_reactive_power, data = data, geom="histogram")
 
-r <- qplot(Global_active_power, data = data, binwidth = .5, geom="histogram")
+r <- qplot(Global_active_power, data = data, binwidth = .5, geom="histogram", 
+           xlab="Global Active Power (kilowatts)", ylab="Frequency", main="Global Active Power", width=480, height=480, units="px")
 r + geom_histogram(binwidth = .5, color="black", fill="red")
+
+dev.copy(png,"plot1.png", width=480, height=480)
+png 
+6 
+> dev.off()
+RStudioGD 
+2 
