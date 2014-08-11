@@ -1,10 +1,12 @@
-##  1day = 24 * 60 = 1440 minutes.  Need for 2 days in feb, therefore 1440 * 2 = 2880
+## This first line will likely take a few seconds. Be patient!
+NEI <- readRDS("summarySCC_PM25.rds")
+SCC <- readRDS("Source_Classification_Code.rds")
 
-fileUrl <- "https://d396qusza40orc.cloudfront.net/exdata%2Fdata%2Fhousehold_power_consumption.zip"
-download.file(fileUrl, destfile = "household_power_consumption.zip")
-unzip("household_power_consumption.zip")
-data <- read.table("household_power_consumption.txt", sep=";", header=TRUE, skip= 66636, nrow=2880)
+## Question 1: Have total emissions from PM2.5 decreased in the United States from 1999 to 2008? 
+## Information provided: Using the base plotting system, make a plot showing the total 
+## PM2.5 emission from all sources for each of the years 1999, 2002, 2005, and 2008.
 
+<<<<<<< HEAD
 names(data)
 ##[1] "X31.1.2007" "X23.59.00"  "X0.326"     "X0.126"     "X242.800"   "X1.400"     "X0.000"    
 ##[8] "X0.000.1"   "X0.000.2"  
@@ -23,10 +25,18 @@ names(data)
 ##[1] "Date"                  "Time"                  "Global_active_power"   "Global_reactive_power"
 ##[5] "voltage"               "Global_intensity"      "Sub_metering_1"        "Sub_metering_2"       
 ##[9] "Sub_metering_3"       
+=======
+# Save png
+dev.copy(png,"plot1.png", width=480, height=480)
 
-r <- qplot(Global_active_power, data = data, binwidth = .5, geom="histogram", 
-           xlab="Global Active Power (kilowatts)", ylab="Frequency", main="Global Active Power", width=480, height=480, units="px")
-r + geom_histogram(binwidth = .5, color="black", fill="red")
+# Release screen device
+dev.off()
+>>>>>>> 05f179ab027fbb90c948fd0ca3b3ba25171944d7
 
+
+<<<<<<< HEAD
 dev.copy(png,"plot1.png", width=480, height=480)
 dev.off()
+=======
+## Answer 1: 
+>>>>>>> 05f179ab027fbb90c948fd0ca3b3ba25171944d7
