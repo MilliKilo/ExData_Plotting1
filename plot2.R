@@ -21,15 +21,16 @@ names(data)
 ##[5] "voltage"               "Global_intensity"      "Sub_metering_1"        "Sub_metering_2"       
 ##[9] "Sub_metering_3"       
 
-data.electric<-read.table("household_power_consumption.txt",sep=";",header=TRUE)
-data.electric.1<-data.electric[data.electric$Date == "1/2/2007" | data.electric$Date == "2/2/2007",]
-data.electric.1$Date<-as.character(data.electric.1$Date)
-data.electric.1$Time<-as.character(data.electric.1$Time)
-data.electric.1$Date<-rep(c("1/2/07","2/2/07"), each=1440)
-x<-paste(data.electric.1$Date,data.electric.1$Time)
-formal.time<-strptime(xx,"%d/%m/%y %H:%M:%S")
-data.electric.formal<-data.frame(formal.time,data.electric.1)
-#plot2
+data <- read.table("household_power_consumption.txt",sep=";",header=TRUE)
+data1 <- data[data$Date == "1/2/2007" | data$Date == "2/2/2007",]
+data1$Date <- as.character(data1$Date)
+data1$Time <- as.character(data1$Time)
+data1$Date <- rep(c("1/2/07","2/2/07"), each=1440)
+x <- paste(data1$Date,data1$Time)
+new.time <- strptime(x,"%d/%m/%y %H:%M:%S")
+data.new <- data.frame(new.time,data1)
+
+## plot2
 png(filename="plot2.png",width=480,height=480)
-plot2<-plot(formal.time,as.numeric(data.electric.formal$Global_active_power)/1000,type="l", xlab="", ylab="Global active power(kilowatts)")
+plot2<-plot(new.time,as.numeric(data.new$Global_active_power)/1000,type="l", xlab="", ylab="Global Active Power(kilowatts)")
 dev.off()
