@@ -1,5 +1,6 @@
-##  1day = 24 * 60 = 1440 minutes.  Need for 2 days in feb, therefore 1440 * 2 = 2880
+## Question 4: Across the United States, how have emissions from coal combustion-related sources changed from 1999-2008?
 
+<<<<<<< HEAD
 fileUrl <- "https://d396qusza40orc.cloudfront.net/exdata%2Fdata%2Fhousehold_power_consumption.zip"
 download.file(fileUrl, destfile = "household_power_consumption.zip")
 unzip("household_power_consumption.zip")
@@ -43,3 +44,12 @@ with(data.electric.formal,{plot(new.time,as.numeric(data.new$Global_active_power
                            legend("topright",c("Sub_metering_1","Sub_metering_2","Sub_metering_3"),lty=1,col=c("black","red","blue"))
                            plot(new.time,as.numeric(data.new$Global_reactive_power)/1000,type="l", xlab="datetime", ylab="Global_reactive_power")})
 dev.off()
+=======
+# Save png
+dev.copy(png,"plot4.png", width=480, height=480)
+
+# Release screen device
+dev.off()
+
+## Answer 4: 
+>>>>>>> 05f179ab027fbb90c948fd0ca3b3ba25171944d7
